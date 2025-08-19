@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "name": "Error & Lint Checker",
+  "description": "Automatically checks for errors and linting issues in files after task completion and fixes them",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/**/*.ts",
+      "src/**/*.js",
+      "src/**/*.tsx",
+      "src/**/*.jsx",
+      "*.ts",
+      "*.js",
+      "*.tsx",
+      "*.jsx"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Check all the files in the project for TypeScript errors, JavaScript errors, and ESLint violations. Fix any errors you find and resolve all linting issues. Run type checking and linting to ensure everything is clean before considering the task complete."
+  }
+}
