@@ -14,20 +14,134 @@
         }
         .container {
             max-width: 400px;
-            margin: 0 auto;
         }
-        h1 {
-            font-size: 18px;
-            margin: 0 0 16px 0;
+        .status {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        .status.connected {
+            background: #e8f5e8;
+            color: #2d5a2d;
+            border: 1px solid #c3e6c3;
+        }
+        .status.disconnected {
+            background: #ffeaea;
+            color: #8b0000;
+            border: 1px solid #ffb3b3;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .section h3 {
+            margin: 0 0 12px 0;
+            font-size: 16px;
             color: #333;
+        }
+        .log-entry {
+            padding: 8px;
+            margin: 4px 0;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            border-left: 3px solid #007acc;
+        }
+        .log-entry.error {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+        .button {
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 4px;
+        }
+        .button:hover {
+            background: #005a9e;
+        }
+        .button.secondary {
+            background: #6c757d;
+        }
+        .button.secondary:hover {
+            background: #545b62;
+        }
+        .button.danger {
+            background: #dc3545;
+        }
+        .button.danger:hover {
+            background: #c82333;
+        }
+        .pending-action {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        .pending-action h4 {
+            margin: 0 0 8px 0;
+            color: #856404;
+        }
+        .action-details {
+            font-family: monospace;
+            font-size: 12px;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 8px 0;
+        }
+        .empty-state {
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>AI Web Pilot</h1>
-        <p>Side panel interface will be implemented in later tasks.</p>
+        <div id="connectionStatus" class="status disconnected">
+            Disconnected from MCP Server
+        </div>
+        
+        <div class="section">
+            <h3>Current Action</h3>
+            <div id="currentAction" class="empty-state">
+                No active actions
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Pending Approvals</h3>
+            <div id="pendingApprovals" class="empty-state">
+                No pending approvals
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Activity Log</h3>
+            <div id="activityLog" class="empty-state">
+                No recent activity
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Controls</h3>
+            <button id="refreshConnection" class="button">Refresh Connection</button>
+            <button id="clearLogs" class="button secondary">Clear Logs</button>
+            <button id="exportLogs" class="button secondary">Export Logs</button>
+        </div>
     </div>
-    <script type="module" src="./index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>

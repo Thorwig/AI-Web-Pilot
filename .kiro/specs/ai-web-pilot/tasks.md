@@ -14,22 +14,22 @@
   - Define configuration types and validation schemas
   - _Requirements: 2.2, 7.1, 7.5_
 
-- [ ] 3. Create Chrome extension manifest and basic structure
+- [x] 3. Create Chrome extension manifest and basic structure
 
   - Write Manifest V3 configuration with required permissions
   - Implement basic service worker with WebSocket connection stub
   - Create side panel HTML structure and basic TypeScript entry point
   - _Requirements: 1.1, 1.2, 1.3, 1.4_
 
-- [ ] 4. Implement WebSocket bridge communication
-- [ ] 4.1 Create WebSocket server in MCP host
+- [x] 4. Implement WebSocket bridge communication
+- [x] 4.1 Create WebSocket server in MCP host
 
   - Write WebSocket server using 'ws' library on localhost:8777
   - Implement connection management with client tracking
   - Add message correlation system with UUID-based request/response matching
   - _Requirements: 1.5, 2.3_
 
-- [ ] 4.2 Implement WebSocket client in extension service worker
+- [x] 4.2 Implement WebSocket client in extension service worker
 
   - Create WebSocket client connection with automatic reconnection
   - Implement message handling and response correlation
