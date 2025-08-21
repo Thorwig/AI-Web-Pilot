@@ -22,9 +22,11 @@ export interface ToolResponse {
   data?: Record<string, unknown>;
   error?: string;
   metadata?: {
+    tool?: string;
     tabId?: number;
     url?: string;
     timestamp: number;
+    [key: string]: unknown; // Allow additional metadata properties
   };
 }
 
@@ -38,7 +40,7 @@ export interface ErrorResponse {
     retryable: boolean;
   };
   metadata: {
-    tool: string;
+    tool?: string;
     timestamp: number;
     tabId?: number;
     url?: string;

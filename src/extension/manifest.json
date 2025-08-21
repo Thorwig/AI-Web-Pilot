@@ -12,7 +12,8 @@
     "declarativeNetRequest",
     "debugger",
     "clipboardWrite",
-    "activeTab"
+    "activeTab",
+    "sidePanel"
   ],
   "host_permissions": [
     "<all_urls>"

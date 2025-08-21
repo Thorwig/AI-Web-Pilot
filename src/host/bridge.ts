@@ -151,7 +151,7 @@ export class WebSocketBridge {
   public async sendCommand(
     cmd: string,
     payload: Record<string, unknown> = {}
-  ): Promise<unknown> {
+  ): Promise<import("../shared/types.js").ToolResponse> {
     if (this.clients.size === 0) {
       throw new Error("No extension clients connected");
     }
@@ -198,7 +198,37 @@ export class WebSocketBridge {
         this.pendingRequests.delete(messageId);
         reject(error);
       }
-    });
+    })
+      .then((response: unknown) => {
+        // Ensure response is in ToolResponse format
+        if (
+          typeof response === "object" &&
+          response !== null &&
+          "success" in response
+        ) {
+          return response as import("../shared/types.js").ToolResponse;
+        }
+
+        // Wrap raw response in ToolResponse format
+        return {
+          success: true,
+          data: response as Record<string, unknown>,
+          metadata: {
+            timestamp: Date.now(),
+          },
+        } as import("../shared/types.js").ToolResponse;
+      })
+      .catch((error: Error) => {
+        // Return error in ToolResponse format
+        return {
+          success: false,
+          error: error.message,
+          metadata: {
+            tool: cmd,
+            timestamp: Date.now(),
+          },
+        } as import("../shared/types.js").ToolResponse;
+      });
   }
 
   /**

@@ -11,12 +11,19 @@
     "build:extension": "vite build --config vite.extension.config.ts",
     "dev:host": "vite build --config vite.host.config.ts --watch",
     "dev:extension": "vite build --config vite.extension.config.ts --watch",
+    "start:host": "node dist/host/index.js",
+    "start": "npm run build:host && npm run start:host",
     "test": "vitest --run",
     "test:watch": "vitest",
     "lint": "eslint src --ext .ts,.tsx",
     "type-check": "tsc --noEmit"
   },
-  "keywords": ["chrome-extension", "mcp", "web-automation", "ai"],
+  "keywords": [
+    "chrome-extension",
+    "mcp",
+    "web-automation",
+    "ai"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {

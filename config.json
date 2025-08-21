@@ -1,0 +1,88 @@
+{
+  "allowlist": {
+    "localhost": {
+      "read": true,
+      "write": true
+    },
+    "127.0.0.1": {
+      "read": true,
+      "write": true
+    },
+    "*.localhost": {
+      "read": true,
+      "write": true
+    },
+    "github.com": {
+      "read": true,
+      "write": false
+    },
+    "stackoverflow.com": {
+      "read": true,
+      "write": false
+    },
+    "developer.mozilla.org": {
+      "read": true,
+      "write": false
+    },
+    "docs.python.org": {
+      "read": true,
+      "write": false
+    },
+    "nodejs.org": {
+      "read": true,
+      "write": false
+    },
+    "example.com": {
+      "read": true,
+      "write": false
+    },
+    "httpbin.org": {
+      "read": true,
+      "write": true
+    },
+    "*.bank": {
+      "read": true,
+      "write": false,
+      "requiresApproval": true
+    },
+    "*.banking": {
+      "read": true,
+      "write": false,
+      "requiresApproval": true
+    },
+    "paypal.com": {
+      "read": true,
+      "write": false,
+      "requiresApproval": true
+    },
+    "stripe.com": {
+      "read": true,
+      "write": false,
+      "requiresApproval": true
+    }
+  },
+  "sensitivePatterns": [
+    "password",
+    "passwd",
+    "pwd",
+    "secret",
+    "token",
+    "key",
+    "card",
+    "cvv",
+    "cvc",
+    "ssn",
+    "iban",
+    "phone",
+    "email"
+  ],
+  "stepBudget": 100,
+  "toolTimeoutMs": 30000,
+  "screenshotDir": "./screenshots",
+  "downloadDir": "./downloads",
+  "logging": {
+    "level": "info",
+    "maxLogSize": 10485760,
+    "retentionDays": 7
+  }
+}
