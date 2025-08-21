@@ -1050,9 +1050,9 @@ class MCPBridge {
         targetTabId = activeTab.id;
       }
 
-      // Ensure CDP session is attached
+      // Ensure CDP session is attached (screenshots don't need Input domain)
       if (!cdpManager.isAttached(targetTabId)) {
-        await cdpManager.attachToTab(targetTabId);
+        await cdpManager.attachToTab(targetTabId, false);
       }
 
       // Capture screenshot using CDP
@@ -1073,29 +1073,19 @@ class MCPBridge {
           ? filename
           : `screenshot-${timestamp}.png`;
 
-      // Convert base64 to blob and trigger download
+      // Convert base64 to data URL for download
       const base64Data = screenshotResult.data;
-      const byteCharacters = atob(base64Data);
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const blob = new Blob([byteArray], { type: "image/png" });
-
-      // Create download URL and trigger download
-      const url = URL.createObjectURL(blob);
+      const dataUrl = `data:image/png;base64,${base64Data}`;
 
       const downloadId = await chrome.downloads.download({
-        url: url,
+        url: dataUrl,
         filename: finalFilename,
         saveAs: false,
       });
 
-      // Clean up the blob URL after a short delay
-      setTimeout(() => {
-        URL.revokeObjectURL(url);
-      }, 1000);
+      // Calculate file size for metadata
+      const byteCharacters = atob(base64Data);
+      const fileSize = byteCharacters.length;
 
       const tab = await chrome.tabs.get(targetTabId);
 
@@ -1106,7 +1096,7 @@ class MCPBridge {
           data: {
             filename: finalFilename,
             downloadId,
-            size: byteArray.length,
+            size: fileSize,
             format: "png",
           },
           metadata: {

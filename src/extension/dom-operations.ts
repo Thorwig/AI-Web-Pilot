@@ -161,9 +161,9 @@ export async function clickElement(options: ClickOptions): Promise<void> {
   const tabId = await getActiveTabId(options.tabId);
 
   try {
-    // Ensure CDP session is attached
+    // Ensure CDP session is attached (click needs Input domain)
     if (!cdpManager.isAttached(tabId)) {
-      await cdpManager.attachToTab(tabId);
+      await cdpManager.attachToTab(tabId, true);
     }
 
     // Find the element
@@ -234,9 +234,9 @@ export async function typeText(options: TypeTextOptions): Promise<void> {
   const tabId = await getActiveTabId(options.tabId);
 
   try {
-    // Ensure CDP session is attached
+    // Ensure CDP session is attached (type needs Input domain)
     if (!cdpManager.isAttached(tabId)) {
-      await cdpManager.attachToTab(tabId);
+      await cdpManager.attachToTab(tabId, true);
     }
 
     // Find the element

@@ -19,8 +19,11 @@ export class CDPManager {
   private readonly sessionInactivityTimeoutMs = 600000; // 10 minutes
   private cleanupIntervalId: ReturnType<typeof setInterval> | null = null;
 
-  // Required CDP domains for web automation
-  private readonly requiredDomains = ["Page", "DOM", "Runtime", "Input"];
+  // Base CDP domains for web automation
+  private readonly baseDomains = ["Page", "DOM", "Runtime"];
+
+  // Additional domains for specific operations
+  private readonly inputDomains = ["Input"];
 
   constructor() {
     this.startCleanupInterval();
@@ -30,7 +33,10 @@ export class CDPManager {
   /**
    * Attach to a tab and enable required CDP domains
    */
-  public async attachToTab(tabId: number): Promise<void> {
+  public async attachToTab(
+    tabId: number,
+    enableInput: boolean = false
+  ): Promise<void> {
     try {
       // Check if already attached
       const existingSession = this.sessions.get(tabId);
@@ -64,7 +70,7 @@ export class CDPManager {
       this.sessions.set(tabId, session);
 
       // Enable required domains
-      await this.enableRequiredDomains(tabId);
+      await this.enableRequiredDomains(tabId, enableInput);
 
       console.log(`[CDPManager] Successfully attached to tab ${tabId}`);
     } catch (error) {
@@ -245,18 +251,27 @@ export class CDPManager {
   /**
    * Enable required CDP domains for a tab
    */
-  private async enableRequiredDomains(tabId: number): Promise<void> {
+  private async enableRequiredDomains(
+    tabId: number,
+    enableInput: boolean = false
+  ): Promise<void> {
     const session = this.sessions.get(tabId);
     if (!session) {
       throw new Error(`No session found for tab ${tabId}`);
     }
 
+    // Determine which domains to enable
+    const domainsToEnable = [...this.baseDomains];
+    if (enableInput) {
+      domainsToEnable.push(...this.inputDomains);
+    }
+
     console.log(
       `[CDPManager] Enabling domains for tab ${tabId}:`,
-      this.requiredDomains
+      domainsToEnable
     );
 
-    for (const domain of this.requiredDomains) {
+    for (const domain of domainsToEnable) {
       try {
         await this.sendCommand(tabId, `${domain}.enable`);
         session.domains.add(domain);
