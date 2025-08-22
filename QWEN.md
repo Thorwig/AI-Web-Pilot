@@ -1,10 +1,10 @@
-# AI Web Pilot - Project Context for Qwen
+# Browser Pilot MCP - Project Context for Qwen
 
-This document provides essential context about the "AI Web Pilot" project for use in future interactions. It outlines the project's purpose, structure, technologies, and development workflows.
+This document provides essential context about the "Browser Pilot MCP" project for use in future interactions. It outlines the project's purpose, structure, technologies, and development workflows.
 
 ## Project Overview
 
-AI Web Pilot is a Chrome extension and Model Context Protocol (MCP) server designed for AI-driven web automation. The project enables AI models to interact with web pages through a secure bridge, performing actions like navigation, DOM manipulation, and data extraction, all governed by configurable security policies.
+Browser Pilot MCP is a Chrome extension and Model Context Protocol (MCP) server designed for AI-driven web automation. The project enables AI models to interact with web pages through a secure bridge, performing actions like navigation, DOM manipulation, and data extraction, all governed by configurable security policies.
 
 The system consists of two main components:
 1.  **MCP Server (Node.js):** Handles communication with AI models (like Claude Code) using the MCP protocol. It exposes tools for web automation and enforces security policies.

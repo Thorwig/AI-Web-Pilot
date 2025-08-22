@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The AI Web Pilot is a Chrome/Chromium extension that enables AI models (Claude or Qwen) to safely control an existing browser profile through a Model Context Protocol (MCP) server. The system allows AI to perform web automation tasks like navigation, reading, clicking, typing, downloading, and tab management while maintaining security through guardrails, user approvals, and policy controls. The solution preserves existing user profiles, passwords, and extensions without requiring browser modifications.
+The Browser Pilot MCP is a Chrome/Chromium extension that enables AI models (Claude or Qwen) to safely control an existing browser profile through a Model Context Protocol (MCP) server. The system allows AI to perform web automation tasks like navigation, reading, clicking, typing, downloading, and tab management while maintaining security through guardrails, user approvals, and policy controls. The solution preserves existing user profiles, passwords, and extensions without requiring browser modifications.
 
 ## Requirements
 

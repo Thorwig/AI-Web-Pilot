@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AI Web Pilot is a sophisticated browser automation system consisting of a Chrome Manifest V3 extension and a Node.js MCP (Model Context Protocol) server. The system enables AI models to safely control web browsers through a secure, policy-driven architecture that maintains user control while providing comprehensive automation capabilities.
+The Browser Pilot MCP is a sophisticated browser automation system consisting of a Chrome Manifest V3 extension and a Node.js MCP (Model Context Protocol) server. The system enables AI models to safely control web browsers through a secure, policy-driven architecture that maintains user control while providing comprehensive automation capabilities.
 
 The design follows a three-tier architecture:
 

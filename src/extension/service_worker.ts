@@ -1,4 +1,4 @@
-// Service worker for AI Web Pilot extension
+// Service worker for Browser Pilot MCP extension
 // Handles WebSocket communication with MCP server
 
 import { BridgeMessage, BridgeResponse, WEBSOCKET_PORT } from "@/shared/types";
@@ -110,7 +110,10 @@ class MCPBridge {
 
       this.ws.onerror = (error) => {
         console.error("[MCPBridge] WebSocket error:", error);
-        console.error("[MCPBridge] WebSocket error type:", error.constructor.name);
+        console.error(
+          "[MCPBridge] WebSocket error type:",
+          error.constructor.name
+        );
         this.connectionStatus.lastError = "WebSocket error occurred";
       };
     } catch (error) {
@@ -1295,11 +1298,11 @@ const mcpBridge = new MCPBridge();
 
 // Extension lifecycle events
 chrome.runtime.onStartup.addListener(() => {
-  console.log("AI Web Pilot extension started");
+  console.log("Browser Pilot MCP extension started");
 });
 
 chrome.runtime.onInstalled.addListener(() => {
-  console.log("AI Web Pilot extension installed");
+  console.log("Browser Pilot MCP extension installed");
 
   // Enable side panel for all sites (with error handling)
   try {
@@ -1496,4 +1499,4 @@ chrome.runtime.onUpdateAvailable.addListener(() => {
   });
 });
 
-console.log("[ServiceWorker] AI Web Pilot service worker loaded");
+console.log("[ServiceWorker] Browser Pilot MCP service worker loaded");

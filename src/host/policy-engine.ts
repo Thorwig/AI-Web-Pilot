@@ -12,7 +12,7 @@ import { DataRedactor } from "./data-redaction.js";
 import { RateLimiter } from "./rate-limiter.js";
 
 /**
- * Policy Engine for AI Web Pilot
+ * Policy Engine for Browser Pilot MCP
  * Handles domain allowlist checking, sensitive data detection, and security controls
  */
 export class PolicyEngine {

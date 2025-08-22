@@ -14,7 +14,7 @@
     },
     "github.com": {
       "read": true,
-      "write": false
+      "write": true
     },
     "stackoverflow.com": {
       "read": true,

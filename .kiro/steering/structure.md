@@ -3,7 +3,7 @@
 ## Directory Organization
 
 ```
-ai-web-pilot/
+browser-pilot-mcp/
 ├── src/
 │   ├── host/                 # MCP Server (Node.js)
 │   │   └── index.ts         # Server entry point

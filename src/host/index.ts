@@ -12,7 +12,7 @@ import { ConfigManager } from "./config.js";
 import { CustomStdioTransport } from "./custom-stdio-transport.js";
 
 // MCP Server entry point
-console.log("AI Web Pilot MCP Server starting...");
+console.log("Browser Pilot MCP Server starting...");
 
 // Initialize configuration manager
 const configPath = process.env.CONFIG_PATH || "./config.json";

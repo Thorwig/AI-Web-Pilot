@@ -1120,4 +1120,4 @@ document.addEventListener("DOMContentLoaded", () => {
   sidePanelInstance = new SidePanelUI();
 });
 
-console.log("AI Web Pilot side panel loaded");
+console.log("Browser Pilot MCP side panel loaded");

@@ -1,4 +1,4 @@
-# AI Web Pilot
+# Browser Pilot MCP
 
 Chrome extension and MCP server for AI-driven web automation.
 

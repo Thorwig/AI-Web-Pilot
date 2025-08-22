@@ -8,7 +8,7 @@ import {
 } from "@/shared/types.js";
 
 /**
- * Configuration management for AI Web Pilot
+ * Configuration management for Browser Pilot MCP
  */
 export class ConfigManager {
   private configPath: string;

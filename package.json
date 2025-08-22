@@ -1,5 +1,5 @@
 {
-  "name": "ai-web-pilot",
+  "name": "browser-pilot-mcp",
   "version": "1.0.0",
   "description": "Chrome extension and MCP server for AI-driven web automation",
   "main": "dist/host/index.js",

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# AI Web Pilot Development Script
+# Browser Pilot MCP Development Script
 # Runs MCP host and extension builder concurrently
 
 set -e
 
-echo "🚀 Starting AI Web Pilot development environment..."
+echo "🚀 Starting Browser Pilot MCP development environment..."
 
 # Check if node_modules exists
 if [ ! -d "node_modules" ]; then

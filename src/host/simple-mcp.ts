@@ -6,7 +6,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 
 // Simple MCP Server for testing
-console.error("Simple AI Web Pilot MCP Server starting...");
+console.error("Simple Browser Pilot MCP Server starting...");
 
 const server = new Server({
   name: "ai-web-pilot",

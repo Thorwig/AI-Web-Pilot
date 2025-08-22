@@ -1,5 +1,5 @@
 // Chrome extension content script
-// Handles element highlighting and selector generation for AI Web Pilot
+// Handles element highlighting and selector generation for Browser Pilot MCP
 
 interface SelectorPickerState {
   active: boolean;
@@ -494,4 +494,4 @@ class SelectorPicker {
 // Initialize selector picker
 new SelectorPicker();
 
-console.log("[AI Web Pilot] Content script loaded with selector picker");
+console.log("[Browser Pilot MCP] Content script loaded with selector picker");

@@ -1,5 +1,5 @@
 /**
- * Rate limiting and budget management for AI Web Pilot
+ * Rate limiting and budget management for Browser Pilot MCP
  */
 export class RateLimiter {
   private requestCounts: Map<string, { count: number; resetTime: number }> =

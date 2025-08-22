@@ -1,11 +1,11 @@
-# AI Web Pilot
+# Browser Pilot MCP
 
 Chrome extension and MCP server for AI-driven web automation.
 
 ## Project Structure
 
 ```
-ai-web-pilot/
+browser-pilot-mcp/
 ├── src/
 │   ├── host/                 # MCP Server (Node.js)
 │   │   └── index.ts         # Server entry point
