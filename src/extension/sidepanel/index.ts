@@ -831,7 +831,7 @@ class SidePanelUI {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = `ai-web-pilot-policies-${
+    a.download = `browser-pilot-policies-${
       new Date().toISOString().split("T")[0]
     }.json`;
     document.body.appendChild(a);
@@ -931,7 +931,7 @@ ${
   private async storeDomainPolicies() {
     try {
       await chrome.storage.sync.set({
-        "ai-web-pilot-domain-policies": this.domainPolicies,
+        "browser-pilot-domain-policies": this.domainPolicies,
       });
     } catch (error) {
       console.error("Failed to store domain policies:", error);
@@ -941,10 +941,10 @@ ${
   private async loadDomainPolicies() {
     try {
       const result = await chrome.storage.sync.get([
-        "ai-web-pilot-domain-policies",
+        "browser-pilot-domain-policies",
       ]);
-      if (result["ai-web-pilot-domain-policies"]) {
-        this.domainPolicies = result["ai-web-pilot-domain-policies"];
+      if (result["browser-pilot-domain-policies"]) {
+        this.domainPolicies = result["browser-pilot-domain-policies"];
         this.updateDomainPoliciesList();
         this.updateCurrentDomainPolicy();
       }
@@ -974,7 +974,7 @@ ${
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = `ai-web-pilot-logs-${
+    a.download = `browser-pilot-logs-${
       new Date().toISOString().split("T")[0]
     }.json`;
     document.body.appendChild(a);
@@ -986,9 +986,9 @@ ${
   private async storeData() {
     try {
       await chrome.storage.local.set({
-        "ai-web-pilot-logs": this.logs,
-        "ai-web-pilot-mode": this.operationMode,
-        "ai-web-pilot-ui-state": {
+        "browser-pilot-logs": this.logs,
+        "browser-pilot-mode": this.operationMode,
+        "browser-pilot-ui-state": {
           currentDomain: this.currentDomain,
           lastSelector: this.lastSelector,
           lastUpdate: Date.now(),
@@ -1002,21 +1002,21 @@ ${
   private async loadStoredData() {
     try {
       const result = await chrome.storage.local.get([
-        "ai-web-pilot-logs",
-        "ai-web-pilot-mode",
-        "ai-web-pilot-ui-state",
+        "browser-pilot-logs",
+        "browser-pilot-mode",
+        "browser-pilot-ui-state",
       ]);
 
-      if (result["ai-web-pilot-logs"]) {
-        this.logs = result["ai-web-pilot-logs"];
+      if (result["browser-pilot-logs"]) {
+        this.logs = result["browser-pilot-logs"];
       }
 
-      if (result["ai-web-pilot-mode"]) {
-        this.operationMode = result["ai-web-pilot-mode"];
+      if (result["browser-pilot-mode"]) {
+        this.operationMode = result["browser-pilot-mode"];
       }
 
-      if (result["ai-web-pilot-ui-state"]) {
-        const uiState = result["ai-web-pilot-ui-state"];
+      if (result["browser-pilot-ui-state"]) {
+        const uiState = result["browser-pilot-ui-state"];
         this.currentDomain = uiState.currentDomain || "";
         this.lastSelector = uiState.lastSelector || "";
 

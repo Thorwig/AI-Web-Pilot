@@ -51,7 +51,7 @@ class SelectorPicker {
   private createOverlayElements() {
     // Create highlight overlay
     this.state.overlay = document.createElement("div");
-    this.state.overlay.id = "ai-web-pilot-selector-overlay";
+    this.state.overlay.id = "browser-pilot-selector-overlay";
     this.state.overlay.style.cssText = `
       position: absolute;
       pointer-events: none;
@@ -65,7 +65,7 @@ class SelectorPicker {
 
     // Create tooltip
     this.state.tooltip = document.createElement("div");
-    this.state.tooltip.id = "ai-web-pilot-selector-tooltip";
+    this.state.tooltip.id = "browser-pilot-selector-tooltip";
     this.state.tooltip.style.cssText = `
       position: absolute;
       pointer-events: none;
@@ -460,7 +460,7 @@ class SelectorPicker {
 
   private showInstructions() {
     const instructions = document.createElement("div");
-    instructions.id = "ai-web-pilot-instructions";
+    instructions.id = "browser-pilot-instructions";
     instructions.style.cssText = `
       position: fixed;
       top: 20px;
@@ -484,7 +484,7 @@ class SelectorPicker {
   }
 
   private hideInstructions() {
-    const instructions = document.getElementById("ai-web-pilot-instructions");
+    const instructions = document.getElementById("browser-pilot-instructions");
     if (instructions) {
       instructions.remove();
     }

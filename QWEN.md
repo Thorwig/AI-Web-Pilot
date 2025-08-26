@@ -13,7 +13,7 @@ The system consists of two main components:
 ## Project Structure
 
 ```
-ai-web-pilot/
+browser-pilot/
 ├── src/
 │   ├── host/                 # MCP Server (Node.js)
 │   │   └── index.ts         # Server entry point

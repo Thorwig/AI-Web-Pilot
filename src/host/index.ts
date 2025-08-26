@@ -26,7 +26,7 @@ const bridge = new WebSocketBridge();
 
 // Initialize MCP server
 const server = new Server({
-  name: "ai-web-pilot",
+  name: "browser-pilot",
   version: "1.0.0",
 });
 

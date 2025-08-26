@@ -62,12 +62,91 @@ browser-pilot-mcp/
 - `bun run lint` - Run ESLint
 - `bun run type-check` - Run TypeScript type checking
 
-## Requirements
+## MCP Setup
+
+### Prerequisites
 
 - Bun runtime
 - Chrome/Chromium browser
 - TypeScript 5+
+- An MCP-compatible AI assistant (like Claude Desktop, Kiro, or other MCP clients)
 
-## Next Steps
+### Installation & Configuration
 
-This is the basic project structure. The actual implementation of MCP tools, Chrome extension functionality, and WebSocket bridge will be added in subsequent tasks.
+1. **Build the MCP Server**:
+   ```bash
+   bun run build:host
+   ```
+
+2. **Configure MCP Client**:
+   
+   Add the browser-pilot-mcp server to your MCP client configuration. The exact location depends on your client:
+
+   **For Kiro IDE**:
+   - Workspace config: `.kiro/settings/mcp.json`
+   - User config: `~/.kiro/settings/mcp.json`
+
+   **For Claude Desktop**:
+   - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+   **Example configuration**:
+   ```json
+   {
+     "mcpServers": {
+       "browser-pilot": {
+         "command": "node",
+         "args": ["./dist/host/index.js"],
+         "cwd": "/path/to/browser-pilot-mcp",
+         "env": {
+           "NODE_ENV": "production"
+         }
+       }
+     }
+   }
+   ```
+
+3. **Install Chrome Extension**:
+   ```bash
+   bun run build:extension
+   ```
+   - Open `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked" → select `dist/extension/`
+
+4. **Start Using**:
+   - Restart your MCP client
+   - The browser-pilot tools should now be available
+   - Open a website in Chrome and start automating!
+
+### Available MCP Tools
+
+Once configured, you'll have access to web automation tools like:
+- `navigate` - Navigate to URLs
+- `click` - Click elements on pages
+- `type` - Type text into form fields
+- `screenshot` - Capture page screenshots
+- `read_text` - Extract text content
+- `wait_for` - Wait for elements to appear
+
+### Troubleshooting
+
+- **Server not connecting**: Check that the path in your MCP config points to the built `dist/host/index.js` file
+- **Extension not working**: Ensure the Chrome extension is loaded and active
+- **Permission errors**: Check that the extension has necessary permissions for the target websites
+
+## Development
+
+### Development Setup
+
+1. Install dependencies:
+   ```bash
+   bun install
+   ```
+
+2. Start development environment:
+   ```bash
+   bun run dev
+   ```
+
+3. Load extension in Chrome (see Installation steps above)

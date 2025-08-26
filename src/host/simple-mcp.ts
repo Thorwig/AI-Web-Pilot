@@ -9,7 +9,7 @@ import {
 console.error("Simple Browser Pilot MCP Server starting...");
 
 const server = new Server({
-  name: "ai-web-pilot",
+  name: "browser-pilot",
   version: "1.0.0",
 });
 
